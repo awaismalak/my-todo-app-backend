@@ -1,0 +1,23 @@
+{
+  "name": "todoappbackend",
+  "version": "1.0.0",
+  "description": "started on 15 August 2021",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awaismalak/my-todo-app-backend.git"
+  },
+  "author": "awais malik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awaismalak/my-todo-app-backend/issues"
+  },
+  "homepage": "https://github.com/awaismalak/my-todo-app-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
