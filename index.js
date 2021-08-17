@@ -5,6 +5,9 @@ require("dotenv/config");
 const mongoose = require("mongoose");
 const taskRouter = require("./routes/tasks");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+
+app.use(cors());
 app.use(bodyParser.json());
 // middleware function
 app.use("/tasks", taskRouter);
