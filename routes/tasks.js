@@ -6,15 +6,17 @@ router.get("/", (req, res) => {
   res.send("hi this is awais malik from tasks router");
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const task = new Task({
     taskTitle: req.body.taskTitle,
     timing: req.body.timing,
   });
-  task
-    .save()
-    .then((data) => res.json(data))
-    .catch((err) => res.json({ message: err }));
+  try {
+    const addTask = await task.save();
+    res.json(addTask);
+  } catch (err) {
+    res.json({ message: err });
+  }
 });
 
 module.exports = router;
