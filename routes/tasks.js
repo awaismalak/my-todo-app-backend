@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Task = require("../models/Task");
-
+// get all tasks from db
 router.get("/", async (req, res) => {
   try {
     const allTasks = await Task.find();
@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
     res.json({ message: err });
   }
 });
-
+// add task on db
 router.post("/", async (req, res) => {
   const task = new Task({
     taskTitle: req.body.taskTitle,
@@ -21,6 +21,15 @@ router.post("/", async (req, res) => {
     res.json(addTask);
   } catch (err) {
     res.json({ message: err });
+  }
+});
+// delete task from db
+router.delete("/:taskId", async (req, res) => {
+  try {
+    const deleteTask = await Task.remove({ _id: req.params.taskId });
+    res.json(deleteTask);
+  } catch (err) {
+    res.json({ messsage: err });
   }
 });
 
