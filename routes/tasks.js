@@ -15,6 +15,7 @@ router.post("/", async (req, res) => {
   const task = new Task({
     taskTitle: req.body.taskTitle,
     timing: req.body.timing,
+    isCompleted: req.body.isCompleted,
   });
   try {
     const addTask = await task.save();
