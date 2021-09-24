@@ -37,9 +37,17 @@ router.delete("/:taskId", async (req, res) => {
 // task edit on db
 router.patch("/:taskId", async (req, res) => {
   try {
+    let data = {};
+    if (req.body.taskTitle) {
+      data.taskTitle = req.body.taskTitle;
+    }
+
+    if (req.body.isCompleted != undefined) {
+      data.isCompleted = req.body.isCompleted;
+    }
     const editTask = await Task.updateOne(
       { _id: req.params.taskId },
-      { $set: { taskTitle: req.body.taskTitle } }
+      { $set: data }
     );
     res.json(editTask);
   } catch (err) {
